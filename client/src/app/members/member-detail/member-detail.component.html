@@ -1,0 +1,111 @@
+
+
+<div class="row" *ngIf="member">
+    <div class="col-4">
+        <div class="card">
+            <img src="{{member.photoUrl || './assets/user.png'}}" class="card-img-top img-thumbnail" alt="{{member.knownAs}}">
+        <div class="card-body">
+            <div>
+                <strong>Città:</strong>
+                <p>{{member.city}}, {{member.country}}</p>
+            </div>
+            <div>
+                <strong>Età:</strong>
+                <p>{{member.age}}</p>
+            </div>
+            <div>
+                <strong>Ultima volta attivo:</strong>
+                <p>{{member.lastActive}}</p>
+            </div>
+            <div>
+                <strong>Membro da:</strong>
+                <p>{{member.created}}</p>
+            </div>
+            <div class="card-footer">
+                <div class="btn-group d-flex">
+                    <button class="btn btn-primary">Piace</button>
+                    <button class="btn btn-success">Messaggia</button>
+                </div>
+            </div>
+        </div>
+        
+        </div>  
+    </div>
+   
+    
+    <div class="col-8">
+        <tabset class="member-tabset">
+            <tab heading="Conosci {{member.knownAs}}">
+               <h4>Descrizione</h4>
+               <p>{{member.introduction}}</p>
+               <h4>Cosa cerco</h4>
+               <p>{{member.lookingFor}}</p>
+            </tab>
+            <tab heading="Interessi">
+                <h4>Interessa</h4>
+                <p>{{member.interests}}</p>
+            </tab>
+            <tab heading="Photos">
+                <h4>Foto utente</h4> 
+                <ngx-gallery [options]="galleryOptions" [images]="galleryImages" class="ngx-gallery"></ngx-gallery>               
+            </tab>
+            <tab heading="Messages">
+                <h4>Messaggi vannno qui</h4>                
+            </tab>
+
+        </tabset>
+        
+    <!--
+        <div class="nav-container">
+            <input type="radio" name="tab" class="nav-input" id="tab1" checked>
+            <label class="nav-item" for="tab1">Conosci {{member.knownAs}}</label>
+            <div class="tab-content">
+                <h4>Descrizione</h4>              
+                <p>{{member.introduction}}</p>
+                <h4>Cosa cerco</h4>              
+                <p>{{member.lookingFor}}</p>
+            </div>
+        </div>
+        
+        <div class="nav-container">
+            <input type="radio" name="tab" class="nav-input" id="tab2">
+            <label class="nav-item" for="tab2">Interessi</label>
+            <div class="tab-content">
+                <h4>Interessi</h4>
+                <p>{{member.interests}}</p>
+            </div>
+        </div>
+        
+        <div class="nav-container">
+            <input type="radio" name="tab" class="nav-input" id="tab3">
+            <label class="nav-item" for="tab3">Photos</label>
+            <div class="tab-content">
+              <p>Le photos vanno qua</p>
+              <div class="photo-slider">
+                
+                <input type="radio" name="photo" class="photo-radio" id="photo1" checked />
+                <div class="photo-item">
+                  <img src="{{member.photos[0].url}}" alt="Photo 1" />
+                </div>
+        
+                <input type="radio" name="photo" class="photo-radio" id="photo2" />
+                <div class="photo-item">
+                  <img src="{{member.photos[1].url}}" alt="Photo 2" />
+                </div>
+        
+                
+              </div>
+            </div>
+        </div>
+        
+        <div class="nav-container">
+            <input type="radio" name="tab" class="nav-input" id="tab4">
+            <label class="nav-item" for="tab4">Messaggi</label>
+            <div class="tab-content">
+              <p>I messaggi vengono inseriti qua</p>
+            </div>
+        </div>
+    -->
+    </div>
+</div>
+
