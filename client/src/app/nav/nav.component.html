@@ -36,7 +36,7 @@
               <ul>  
                 <li class="dropdown" *ngIf="accountService.currentUser$ | async">
                       <img src="{{user.photoUrl || './assets/user.png'}}" alt="utente foto">
-                      <a href="#">Benvenuto utente</a>    
+                      <a href="#">Benvenuto {{user.username}}</a>    
                       <ul>
                           <li><a routerLink="/member/edit" class="dropdown-item">Edizione profilo</a></li>
                           <li><a href="#" class="dropdown-item" (click)="logout()">LogOut</a></li>                                     

@@ -14,15 +14,13 @@ namespace API.Controllers
     {
         private readonly DataContext _context;
         private readonly ITokenService _tokenService;
-        private readonly IMapper _mapper;
-        
+        private readonly IMapper _mapper;        
         public AccountController(DataContext context, ITokenService tokenService, IMapper mapper)
         {
             _mapper = mapper;            
             _tokenService = tokenService;
             _context=context;
         }
-
 
         [HttpPost("register")]//POST: api/account/register
         public async Task<ActionResult<UserDto>>Register(RegisterDto registerDto)
@@ -44,11 +42,11 @@ namespace API.Controllers
             {
                 Username=user.UserName,
                 Token=_tokenService.CreateToken(user),
-                PhotoUrl=user.Photos.FirstOrDefault(x=>x.IsMain)?.Url,
-                KnownAs = user.KnownAs
-            };
-            
+                //PhotoUrl=user.Photos.FirstOrDefault(x=>x.IsMain)?.Url,
+                KnownAs = user.KnownAs,
+                Gender = user.Gender
 
+            };    
 
         }
 
@@ -73,21 +71,12 @@ namespace API.Controllers
             {
                 Username = user.UserName,
                 Token =_tokenService.CreateToken(user),
-                PhotoUrl=user.Photos.FirstOrDefault(x => x.IsMain)?.Url
+                PhotoUrl=user.Photos.FirstOrDefault(x => x.IsMain)?.Url,
+                KnownAs = user.KnownAs,
+                Gender = user.Gender
             };
 
-
-
         }
-
-
-
-
-
-
-
-
-
 
         //aggiungo metodo per vedere se l'utente esiste
         private async Task<bool>UserExists(string username)
@@ -95,7 +84,5 @@ namespace API.Controllers
             return await _context.Users.AnyAsync(x=>x.UserName==username.ToLower());
         }
 
-
-        
     }
 }
