@@ -34,6 +34,7 @@ import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {PaginationModule} from 'ngx-bootstrap/pagination';
 import {ButtonsModule} from 'ngx-bootstrap/buttons';
 import { TimeagoModule } from 'ngx-timeago';
+import { ToastrModule } from 'ngx-toastr';
 
 
 
@@ -69,6 +70,7 @@ import { TimeagoModule } from 'ngx-timeago';
     HttpClientModule,
     FormsModule,
     FileUploadModule,
+    ToastrModule.forRoot(),
     NgxSpinnerModule.forRoot({type:'line-scale-party'}),
     BrowserAnimationsModule,
     TabsModule.forRoot(),
@@ -92,7 +94,8 @@ import { TimeagoModule } from 'ngx-timeago';
     BsDatepickerModule,
     PaginationModule,
     ButtonsModule,
-    TimeagoModule
+    TimeagoModule,
+    ToastrModule
     
   ],
   providers: [

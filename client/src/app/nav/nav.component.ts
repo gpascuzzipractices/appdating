@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class NavComponent implements OnInit {
   model:any={}
-  user:any;
+  user:any; 
   //loggedIn=false;
   //currentUser$: Observable<User | null>=of(null);
   
@@ -20,7 +20,7 @@ export class NavComponent implements OnInit {
   constructor(public accountService:AccountService, private router:Router) { }
 
   ngOnInit(): void {
-    //this.currentUser$=this.accountService.currentUser$;
+    //this.currentUser$=this.accountService.currentUser$;non attivare
     this.accountService.currentUser$.subscribe({
       next: (user) => {
         this.user = user; // Assign the user to the component's user property
@@ -40,8 +40,7 @@ export class NavComponent implements OnInit {
   login(){
     //console.log(this.model);
     this.accountService.login(this.model).subscribe({
-      next: _ => 
-        this.router.navigateByUrl('/members')
+      next: _ =>  this.router.navigateByUrl('/members')
         //console.log(response);
         /*this.loggedIn = true; non viene più usato dopoasync pipe*/
       ,
